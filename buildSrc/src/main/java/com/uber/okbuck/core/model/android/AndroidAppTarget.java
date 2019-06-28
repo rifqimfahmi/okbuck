@@ -3,6 +3,7 @@ package com.uber.okbuck.core.model.android;
 import com.android.build.gradle.AppExtension;
 import com.android.build.gradle.api.ApplicationVariant;
 import com.android.build.gradle.api.BaseVariant;
+import com.android.build.gradle.tasks.NdkCompile;
 import com.android.builder.model.SigningConfig;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
@@ -47,8 +48,11 @@ public class AndroidAppTarget extends AndroidLibTarget {
     minifyEnabled = getBaseVariant().getBuildType().isMinifyEnabled();
     keystore = extractKeystore();
 
-    Set<String> abiFilters = getAndroidExtension().getSplits().getAbiFilters();
-    cpuFilters = abiFilters != null ? abiFilters : ImmutableSet.of();
+    BaseVariant baseVariant = getBaseVariant();
+    NdkCompile ndkCompile = baseVariant.getNdkCompile();
+
+    Set<String> filters = ndkCompile != null ? ndkCompile.getAbiFilters() : ImmutableSet.of();
+    cpuFilters = filters != null ? filters : ImmutableSet.of();
 
     multidexEnabled =
         Optional.ofNullable(getBaseVariant().getBuildType().getMultiDexEnabled())
