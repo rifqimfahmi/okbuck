@@ -36,8 +36,15 @@ class MainActivity : DaggerAppCompatActivity() {
     private fun testCoroutine() {
         val btn = findViewById<Button>(R.id.coroutineBtn)
         btn.setOnClickListener {
+//            GlobalScope.launch(Dispatchers.Default) {
+//                delay(1000)
+//                Log.d("TEST_COROUTINE", "YEAY")
+//            }
+//            GlobalScope.launch(Dispatchers.IO) {
+//                delay(1000)
+//                Log.d("TEST_COROUTINE", "YEAY")
+//            }
             GlobalScope.launch(Dispatchers.Main) {
-                delay(1000)
                 Log.d("TEST_COROUTINE", "YEAY")
             }
         }

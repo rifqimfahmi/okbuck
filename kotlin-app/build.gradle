@@ -52,7 +52,7 @@ dependencies {
     androidTestImplementation deps.test.espressoRunner
     androidTestImplementation deps.test.espressoCore
     androidTestImplementation deps.test.espressoRules
-    
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
 }
