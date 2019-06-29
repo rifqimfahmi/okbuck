@@ -369,7 +369,7 @@ public class JvmTarget extends Target {
       return ImmutableMap.of();
     }
 
-    return ImmutableMap.of("friend_paths", ImmutableList.of(":" + JvmBuckRuleComposer.src(this)));
+    return ImmutableMap.of();
   }
 
   protected List<String> getKotlinCompilerOptions() {
