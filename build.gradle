@@ -125,6 +125,7 @@ def addCommonConfigurationForAndroidModules(Project project) {
 }
 
 okbuck {
+    buckBinary = "com.github.facebook:buck:91b30eb54128130f925c3d968619c5b59c888486@pex"
     buildToolVersion = config.build.buildTools
     target = "android-${config.build.compileSdk}"
 
